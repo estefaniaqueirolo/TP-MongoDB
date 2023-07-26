@@ -1,0 +1,7 @@
+.container-card-personajes{
+    margin: 90px auto;
+    display: grid;
+    width: 930px;
+    grid-gap: 30px;
+    grid-template-columns: repeat(3, 300px);
+}
