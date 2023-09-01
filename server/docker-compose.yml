@@ -1,14 +1,21 @@
-web:
-  build: .
-  command: sh -c "npm install; npm start"
-  ports:
-    - "4040:4040"
-  volumes:
-    - C:\Users\estef\OneDrive\Escritorio\server/api:/api
-  links:
-   - "db"
+version: '3' 
+services:
+  web:
+    build: .
+    command: sh -c "npm install; npm start"
+    ports:
+      - "4040:4040"
+    volumes:
+      - C:\Users\estef\OneDrive\Escritorio\FCYT\react-Mongo\server/api:/api  
+    links:
+      - "db"
 
-db:
-  image: mongo:4.4.6
-  ports:
-    - "27017:27017"
+  db:
+    image: mongo:4.4.6
+    ports:
+      - "27017:27017"
+
+
+
+
+
