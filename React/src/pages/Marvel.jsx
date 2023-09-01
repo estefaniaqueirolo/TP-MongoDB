@@ -1,24 +1,22 @@
 import React, {useState, useEffect} from 'react'
 import CardHome from '../components/CardHome';
 import NavBar from '../components/NavBar';
-import './styles/Home.css'
 
-const Home = () => {
+const Marvel = () => {
+    const [personajes, setPersonajes] = useState();
 
-  const [personajes, setPersonajes] = useState();
-  const [personajesFiltrado, setPersonajesFiltrado] = useState();
-  
   const ObtenerPersonajes = async() => {
-    const result = await fetch(`http://localhost:4040/personajes`);
+    const result = await fetch(`http://localhost:4040/mostrarporcasa/Marvel`);
     const data = await result.json();
     setPersonajes(data);
     setPersonajesFiltrado(data)
   }
-  
+
   useEffect(() => {
     ObtenerPersonajes();
   }, [])
 
+  const [personajesFiltrado, setPersonajesFiltrado] = useState();
   
   const filtrarPersonaje = (search) => {
     let resultado = personajes.filter( elemento => {
@@ -29,9 +27,7 @@ const Home = () => {
     });
     setPersonajesFiltrado(resultado);
   }
-
-
-  console.log(personajesFiltrado)
+  
 
   return (
     <>
@@ -51,4 +47,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Marvel

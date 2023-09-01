@@ -13,10 +13,8 @@ const NavBar = () => {
       </div>
       <div className="container-agregar">
         <Link className='btn-agregar' to="/agregarpersonaje"><p>Agregar personaje</p></Link>
-      </div>
-      <div className="container-busqueda">
-        <input type="search" placeholder='Búsque un personaje' />
-        <button>Buscar</button>
+        <Link className='btn-agregar' to="/marvel"><p>Marvel</p></Link>
+        <Link className='btn-agregar' to="/dc"><p>DC</p></Link>
       </div>
     </div>
   )

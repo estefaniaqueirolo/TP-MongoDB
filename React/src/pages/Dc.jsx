@@ -1,25 +1,22 @@
 import React, {useState, useEffect} from 'react'
 import CardHome from '../components/CardHome';
 import NavBar from '../components/NavBar';
-import './styles/Home.css'
 
-const Home = () => {
-
+const DC = () => {
   const [personajes, setPersonajes] = useState();
   const [personajesFiltrado, setPersonajesFiltrado] = useState();
-  
+
   const ObtenerPersonajes = async() => {
-    const result = await fetch(`http://localhost:4040/personajes`);
+    const result = await fetch(`http://localhost:4040/mostrarporcasa/Dc Comic`);
     const data = await result.json();
     setPersonajes(data);
     setPersonajesFiltrado(data)
   }
-  
+
   useEffect(() => {
-    ObtenerPersonajes();
+    ObtenerPersonajes()
   }, [])
 
-  
   const filtrarPersonaje = (search) => {
     let resultado = personajes.filter( elemento => {
         if(elemento.nombrePJ.toString().toLowerCase().includes(search.toLowerCase())
@@ -29,9 +26,6 @@ const Home = () => {
     });
     setPersonajesFiltrado(resultado);
   }
-
-
-  console.log(personajesFiltrado)
 
   return (
     <>
@@ -51,4 +45,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default DC;
